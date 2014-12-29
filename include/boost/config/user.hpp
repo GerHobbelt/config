@@ -131,4 +131,14 @@
 // to ensure the correct libraries are selected at link time.
 // #define BOOST_LIB_BUILDID amd64
 
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0A00
+#endif
+
+#ifndef WINVER
+#define WINVER _WIN32_WINNT
+#endif
+
+#define BOOST_USE_WINAPI_VERSION 0x0A00
+
 #include <boost/version.hpp>
