@@ -142,3 +142,5 @@
 #define BOOST_LOG_USE_WINNT6_API
 #define BOOST_LOG_USE_COMPILER_TLS
 #define BOOST_LOG_WITHOUT_DEFAULT_FACTORIES
+
+#include <boost/version.hpp>
