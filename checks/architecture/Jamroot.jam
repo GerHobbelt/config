@@ -18,6 +18,7 @@ obj 64 : 64.cpp ;
 obj arm      : arm.cpp ;
 obj combined : combined.cpp ;
 obj mips1    : mips1.cpp ;
+obj mips64   : mips64.cpp ;
 obj power    : power.cpp ;
 obj sparc    : sparc.cpp ;
 obj x86      : x86.cpp ;
