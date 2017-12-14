@@ -23,6 +23,11 @@
 #include <cstring>
 #include <boost/type_traits/alignment_of.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4127) // conditional expression is constant
+# pragma warning(disable: 4756) // overflow in constant arithmetic
+#endif
+
 #ifdef BOOST_NO_STDC_NAMESPACE
 namespace std{ using ::strcmp; using ::pow; using ::fabs; using ::sqrt; using ::sin; using ::atan2; }
 #endif

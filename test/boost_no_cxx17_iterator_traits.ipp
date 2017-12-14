@@ -11,6 +11,10 @@
 
 #include <iterator>
 
+#if defined (BOOST_MSVC)
+# pragma warning(disable: 4127)
+#endif
+
 namespace boost_no_cxx17_iterator_traits {
 
 struct iterator

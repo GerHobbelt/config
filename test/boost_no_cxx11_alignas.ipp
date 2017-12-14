@@ -10,6 +10,10 @@
 //  TITLE:         C++11 alignas keyword.
 //  DESCRIPTION:   The compiler does not support the C++11 alignment specification with alignas keyword.
 
+#if defined (BOOST_MSVC)
+# pragma warning(disable: 4324) // structure was padded due to alignment specifier
+#endif
+
 namespace boost_no_cxx11_alignas {
 
 template< unsigned int Alignment >
