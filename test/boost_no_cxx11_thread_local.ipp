@@ -18,7 +18,7 @@ template <class T>
 int check_local(int n)
 {
    static thread_local T s(n, ' ');
-   static thread_local int size = s.size();
+   static thread_local int size = static_cast<int>(s.size());
    if(size != n)
    {
       s = T(n, ' ');
