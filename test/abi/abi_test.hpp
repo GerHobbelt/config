@@ -9,6 +9,10 @@
 #ifndef BOOST_ABI_TEST_HPP
 #define BOOST_ABI_TEST_HPP
 
+#if defined(BOOST_MSVC)
+# pragma warning(disable: 4103) // alignment changed after including header
+#endif
+
 #include <boost/config.hpp>
 #include <boost/cstdint.hpp>
 

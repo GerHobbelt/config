@@ -17,10 +17,10 @@ namespace boost_no_cxx11_user_defined_literals {
 struct my_literal
 {
    my_literal() : val(0) {}
-   my_literal(int i) : val(i) {}
+   my_literal(unsigned long long i) : val(i) {}
    my_literal(const my_literal& a) : val(a.val) {}
    bool operator==(const my_literal& a) const { return val == a.val; }
-   int val;
+   unsigned long long val;
 };
 
 template <unsigned base, unsigned long long val, char... Digits>

@@ -9,6 +9,10 @@
 //  TITLE:         <wchar.h> and <cwchar>
 //  DESCRIPTION:   The Platform does not provide <wchar.h> and <cwchar>.
 
+#if defined (BOOST_MSVC)
+# pragma warning(disable: 4996)
+#endif
+
 #include <cwchar>
 #include <wchar.h>
 
