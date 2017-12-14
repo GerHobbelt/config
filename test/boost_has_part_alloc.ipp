@@ -27,6 +27,7 @@ namespace boost_has_partial_std_allocator{
 template <class T>
 int test_allocator(const T& i)
 {
+   (void)i;
    typedef std::allocator<int> alloc1_t;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))
    typedef typename alloc1_t::size_type           size_type;

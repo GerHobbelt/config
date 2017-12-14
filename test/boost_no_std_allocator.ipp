@@ -27,6 +27,7 @@ namespace boost_no_std_allocator{
 template <class T>
 int test_allocator(const T& i)
 {
+   (void)i;
    typedef std::allocator<int> alloc1_t;
 #if !((__cplusplus > 201700) || (defined(_MSVC_LANG) && (_MSVC_LANG > 201700)))
    // stuff deprecated in C++17:
@@ -36,7 +37,7 @@ int test_allocator(const T& i)
    typedef typename alloc1_t::const_pointer       const_pointer;
    typedef typename alloc1_t::reference           reference;
    typedef typename alloc1_t::const_reference     const_reference;
-   #endif
+#endif
    typedef typename alloc1_t::value_type          value_type BOOST_UNUSED_ATTRIBUTE;
 
    alloc1_t a1;

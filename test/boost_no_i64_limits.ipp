@@ -14,6 +14,10 @@
 
 namespace boost_no_ms_int64_numeric_limits{
 
+#ifdef _MSC_VER
+#pragma warning(disable: 4127) // conditional expression is constant
+#endif
+
 int test()
 {
    if(0 == std::numeric_limits<__int64>::is_specialized) return -1;

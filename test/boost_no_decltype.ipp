@@ -39,7 +39,7 @@ void baz(F f)
 
 int test()
 {
-  int i;
+  int i = 0;
   decltype(i) j(0);
   quiet_warning(j);
   decltype(get_test_class()) k;
@@ -48,7 +48,7 @@ int test()
   // so don't test the bugs for now!
   baz(get_test_class);
   #endif
-  return 0;
+  return i;
 }
 
 }
