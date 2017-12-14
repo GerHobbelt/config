@@ -14,6 +14,10 @@
 
 namespace boost_no_long_long_numeric_limits{
 
+#ifdef _MSC_VER
+#pragma warning(disable: 4127) // conditional expression is constant
+#endif
+
 int test()
 {
 #ifdef __GNUC__

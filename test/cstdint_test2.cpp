@@ -41,6 +41,10 @@
 #include <boost/detail/lightweight_test.hpp>
 #include <iostream>
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4127) // conditional expression is constant
+#endif
+
 #ifndef BOOST_NO_INCLASS_MEMBER_INITIALIZATION
 //
 // the following class is designed to verify

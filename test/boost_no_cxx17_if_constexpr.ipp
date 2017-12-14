@@ -11,6 +11,10 @@ http://www.boost.org/LICENSE_1_0.txt)
 // TITLE: C++17 if constexpr
 // DESCRIPTION: C++17 if constexpr are not supported.
 
+#if defined (BOOST_MSVC)
+# pragma warning(disable: 4702)
+#endif
+
 namespace boost_no_cxx17_if_constexpr {
 
 template <typename T, typename U>
