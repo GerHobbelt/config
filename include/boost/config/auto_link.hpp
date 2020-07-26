@@ -172,20 +172,10 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
      // vc12:
 #    define BOOST_LIB_TOOLSET "vc120"
 
-#  elif defined(BOOST_MSVC) && (BOOST_MSVC < 1910)
-
-     // vc14:
-#    define BOOST_LIB_TOOLSET "vc140"
-
-#  elif defined(BOOST_MSVC) && (BOOST_MSVC < 1920)
-
-     // vc14.1:
-#    define BOOST_LIB_TOOLSET "vc141"
-
 #  elif defined(BOOST_MSVC)
 
-     // vc14.2:
-#    define BOOST_LIB_TOOLSET "vc142"
+     // vc14.x: 14.0, 14.1, and 14.2 are ABI compatible
+#    define BOOST_LIB_TOOLSET "vc140"
 
 #  elif defined(BOOST_EMBTC_WINDOWS)
 
