@@ -150,4 +150,7 @@
 #define BOOST_LOG_WITHOUT_SYSLOG
 #define BOOST_LOG_WITHOUT_IPC
 
+#define BOOST_AC_USE_STD_ATOMIC
+#define BOOST_SP_USE_STD_ATOMIC
+
 #include <boost/version.hpp>
