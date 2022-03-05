@@ -1159,7 +1159,7 @@ namespace std{ using ::type_info; }
 #if !__has_include(<format>)
 #  define BOOST_NO_CXX20_HDR_FORMAT
 #endif
-#if !__has_include(<source_Location>)
+#if !__has_include(<source_location>)
 #  define BOOST_NO_CXX20_HDR_SOURCE_LOCATION
 #endif
 #if !__has_include(<bit>)
@@ -1196,18 +1196,6 @@ namespace std{ using ::type_info; }
 #  define BOOST_NO_CXX20_HDR_SEMAPHORE
 #endif
 #endif
-#endif
-
-//
-// Define composite agregate macros:
-//
-#include <boost/config/detail/cxx_composite.hpp>
-
-//
-// Define the std level that the compiler claims to support:
-//
-#ifndef BOOST_CXX_VERSION
-#  define BOOST_CXX_VERSION __cplusplus
 #endif
 
 //
