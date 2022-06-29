@@ -454,7 +454,10 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #  define BOOST_LIB_SUFFIX ".lib"
 #endif
 
-#ifdef BOOST_AUTO_LINK_DISABLED
+#if defined(BOOST_AUTO_LINK_DISABLED) || defined(BUILD_MONOLITHIC)
+#  ifdef BOOST_LIB_DIAGNOSTIC
+#     pragma message ("You are using BOOST lib file: " BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_SUFFIX " -- you may want to add it to the linker inputs list. Boost auto-link has been DISABLED (BOOST_AUTO_LINK_DISABLED || BUILD_MONOLITHIC).")
+#  endif
 #elif defined(BOOST_AUTO_LINK_NOMANGLE)
 #  pragma comment(lib, BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_SUFFIX)
 #  ifdef BOOST_LIB_DIAGNOSTIC
