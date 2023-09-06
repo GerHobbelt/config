@@ -1,0 +1,41 @@
+name: Bazel Release
+
+on:
+  release:
+    types: [published]
+
+env:
+  BZLMOD_ARCHIVE_NAME: ${{ format('bazelboost-{0}-{1}.tar.gz', github.event.repository.name, github.event.release.tag_name) }}
+
+jobs:
+  # A release archive is required for bzlmod
+  # See: https://blog.bazel.build/2023/02/15/github-archive-checksum.html
+  upload-archive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: git archive -o "${BZLMOD_ARCHIVE_NAME}" $GITHUB_REF *.bazel include
+      - run: gh release upload ${{ github.event.release.tag_name }} ${GITHUB_REF_NAME} "${BZLMOD_ARCHIVE_NAME}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: bzlmod-archive
+          path: ${BZLMOD_ARCHIVE_NAME}
+      
+  create-registry-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        repository: bazelboost/registry
+      - uses: actions/download-artifact@v3
+        with:
+          name: bzlmod-archive
+      - run: bazelisk run //tools:add_module_version -- -tag="${{ github.event.release.tag_name }}" -module="${{ format('boost.{0}', github.event.repository.name) }}" -archive="${BZLMOD_ARCHIVE_NAME}"
+      - run: git add -A
+      - run: git commit -m "add ${{ github.event.release.tag_name }}"
+      - run: gh pr create -R bazelboost/registry --fill
+        env:
+          GH_TOKEN: ${{ github.token }}

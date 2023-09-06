@@ -1,0 +1,15 @@
+module(
+    name = "boost.config.test",
+    version = "1.83.0",
+    compatibility_level = 108300,
+)
+
+bazel_dep(name = "boost.config")
+bazel_dep(name = "boost.core", version = "1.83.0")
+bazel_dep(name = "boost.detail", version = "1.83.0")
+bazel_dep(name = "boost.type_traits", version = "1.83.0")
+
+local_path_override(
+    module_name = "boost.config",
+    path = "..",
+)

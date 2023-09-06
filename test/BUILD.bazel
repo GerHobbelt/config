@@ -1,0 +1,16 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "boost.config.test",
+    srcs = glob([
+        "**/*.hpp",
+        "**/*.h",
+        "**/*.cpp",
+    ]),
+    deps = [
+        "@boost.config",
+        "@boost.core",
+        "@boost.detail",
+        "@boost.type_traits",
+    ],
+)
