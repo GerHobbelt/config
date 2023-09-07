@@ -20,20 +20,14 @@ jobs:
       - run: gh release upload ${{ github.event.release.tag_name }} "${BZLMOD_ARCHIVE_NAME}"
         env:
           GH_TOKEN: ${{ github.token }}
-      - uses: actions/upload-artifact@v3
-        with:
-          name: bzlmod-archive
-          path: ${BZLMOD_ARCHIVE_NAME}
       
   create-registry-pr:
     runs-on: ubuntu-latest
+    needs: upload-archive
     steps:
       - uses: actions/checkout@v4
         with:
           repository: bazelboost/registry
-      - uses: actions/download-artifact@v3
-        with:
-          name: bzlmod-archive
       - run: bazelisk run //tools:add_module_version -- -archive="https://github.com/bazelboost/${{ github.event.repository.name }}/releases/download/${{ github.event.release.tag_name }}/${BZLMOD_ARCHIVE_NAME}"
       - run: git add -A
       - run: git commit -m "add ${{ github.event.release.tag_name }}"
