@@ -29,7 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        repository: bazelboost/registry
+        with:
+          repository: bazelboost/registry
       - uses: actions/download-artifact@v3
         with:
           name: bzlmod-archive
