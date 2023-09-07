@@ -7,5 +7,6 @@ on:
 jobs:
   bzlmod-archive:
     uses: bazelboost/registry/.github/workflows/bzlmod-archive.yml@main
+    secrets: inherit
     permissions:
       contents: write
