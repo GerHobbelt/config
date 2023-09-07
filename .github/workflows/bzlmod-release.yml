@@ -26,4 +26,7 @@ jobs:
           token: ${{ secrets.BAZELBOOST_REGISTRY_TOKEN }}
           repository: bazelboost/registry
           event-type: bazelboost-module-release
-          client-payload: '{"archive": "${{ format("https://github.com/bazelboost/{0}/releases/download/{1}/{0}-{1}.tar.gz", github.event.repository.name, github.event.release.tag_name) }}"}'
+          client-payload: >-
+            {
+              "archive": "${{ format('https://github.com/bazelboost/{0}/releases/download/{1}/{0}-{1}.tar.gz', github.event.repository.name, github.event.release.tag_name) }}"
+            }
