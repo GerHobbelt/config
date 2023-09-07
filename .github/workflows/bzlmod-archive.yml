@@ -6,8 +6,6 @@ on:
 
 jobs:
   bzlmod-archive:
-    runs-on: ubuntu-latest
+    uses: bazelboost/registry/.github/workflows/bzlmod-archive.yml@main
     permissions:
       contents: write
-    steps:
-      - uses: bazelboost/registry/.github/workflows/bzlmod-archive.yml@main
