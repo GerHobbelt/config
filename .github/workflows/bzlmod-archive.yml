@@ -1,0 +1,13 @@
+name: Bzlmod Archive
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  bzlmod-archive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: bazelboost/registry/.github/workflows/bzlmod-archive.yml@main
