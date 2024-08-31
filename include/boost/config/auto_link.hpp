@@ -454,6 +454,12 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #  define BOOST_LIB_SUFFIX ".lib"
 #endif
 
+
+#pragma message ("Monolithic builds SHOULD NOT produce pesky boost::auto_link #pragma comment(lib, xyz) linker instructions. This is by design; if you must, add them by hand, but really your MSVC projects' dependency chain should take care of this by itself.")
+
+
+#if !defined(BUILD_MONOLITHIC)
+
 #ifdef BOOST_AUTO_LINK_NOMANGLE
 #  pragma comment(lib, BOOST_STRINGIZE(BOOST_LIB_NAME) BOOST_LIB_SUFFIX)
 #  ifdef BOOST_LIB_DIAGNOSTIC
@@ -480,6 +486,8 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 #     pragma message ("Linking to lib file: " BOOST_LIB_PREFIX BOOST_STRINGIZE(BOOST_LIB_NAME) "-" BOOST_LIB_TOOLSET BOOST_LIB_THREAD_OPT BOOST_LIB_RT_OPT BOOST_LIB_ARCH_AND_MODEL_OPT "-" BOOST_LIB_VERSION BOOST_LIB_SUFFIX)
 #  endif
 #endif
+
+#endif	
 
 #else
 #  error "some required macros where not defined (internal logic error)."
