@@ -584,7 +584,7 @@ void write_std_config_checks()
    write_std_check("__cpp_exceptions", 199711, "", 03);
 }
 
-int cpp_main(int argc, char* argv[])
+int cpp_main(int argc, const char** argv)
 {
    //
    // get the boost path to begin with:

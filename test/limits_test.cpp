@@ -173,7 +173,7 @@ void test_float_limits(const T &, const char * msg)
 }
 
 
-int cpp_main(int, char*[])
+int cpp_main(int, const char**)
 {
   test_integral_limits(bool(), "bool");
   test_integral_limits(char(), "char");
