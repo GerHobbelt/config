@@ -122,6 +122,11 @@ namespace boost_no_cxx11_addressof = empty_boost;
 #else
 namespace boost_no_cxx11_alignas = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX11_ALIGNOF
+#include "boost_no_cxx11_alignof.ipp"
+#else
+namespace boost_no_cxx11_alignof = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX11_ALLOCATOR
 #include "boost_no_cxx11_allocator.ipp"
 #else
@@ -446,6 +451,11 @@ namespace boost_no_cxx17_std_apply = empty_boost;
 #include "boost_no_cxx17_std_invoke.ipp"
 #else
 namespace boost_no_cxx17_std_invoke = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX17_STD_LAUNDER
+#include "boost_no_cxx17_std_launder.ipp"
+#else
+namespace boost_no_cxx17_std_launder = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX17_STRUCTURED_BINDINGS
 #include "boost_no_cxx17_structured_bindings.ipp"
@@ -1434,6 +1444,11 @@ int main( int, char *[] )
    if(0 != boost_no_cxx11_alignas::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX11_ALIGNAS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx11_alignof::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX11_ALIGNOF at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx11_allocator::test())
