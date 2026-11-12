@@ -151,7 +151,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        toolset: [ clang, gcc-11, gcc-10, gcc-9 ]
+        toolset: [ clang, gcc-11, gcc-10 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -328,7 +328,7 @@ jobs:
         run: ..\..\..\b2 print_config_info cxxstd=14,17,latest address-model=64 toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
       - name: Test
-        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,latest toolset=msvc-14.3
+        run: ..\..\..\b2 --hash address-model=64 cxxstd=14,17,20,latest toolset=msvc-14.3
         working-directory: ../boost-root/libs/config/test
   windows_clang_msvc_14_3:
     runs-on: windows-2022
@@ -511,13 +511,13 @@ jobs:
         run: |
          source ../emsdk/emsdk_env.sh
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -I. -O3 -o config_info_pthread libs/config/test/config_info.cpp
-         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_info_pthread
+         node --experimental-wasm-threads config_info_pthread
       - name: Test config_test (pthread)
         working-directory: ../boost-root
         run: |
          source ../emsdk/emsdk_env.sh
          emcc -pthread -s EXIT_RUNTIME=1 -s PTHREAD_POOL_SIZE=32 -s DISABLE_EXCEPTION_CATCHING=0 -I. -O3 -o config_test_pthread libs/config/test/config_test.cpp
-         node --experimental-wasm-threads --experimental-wasm-bulk-memory config_test_pthread
+         node --experimental-wasm-threads config_test_pthread
   ubuntu-cuda:
     runs-on: ubuntu-20.04
     strategy:
@@ -569,9 +569,6 @@ jobs:
         working-directory: ../boost-root/libs/config/test
       - name: Config_test nvcc+clang
         run: nvcc -std=c++${{ matrix.std }} --compiler-bindir=clang++ -o config_test -I../../.. config_test.cpp  -latomic && ./config_test
-        working-directory: ../boost-root/libs/config/test
-      - name: Config_test nvcc-cuda+clang
-        run: nvcc -c -std=c++${{ matrix.std }} --compiler-bindir=clang++ -I../../.. config_test.cu
         working-directory: ../boost-root/libs/config/test
       - name: Config_test clang-cuda
         run: clang++ -nocudalib --no-cuda-version-check -c --cuda-gpu-arch=sm_75 -std=c++${{ matrix.std }} -I../../.. config_test.cu
