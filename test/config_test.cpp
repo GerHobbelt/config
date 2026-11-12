@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jul 10 19:11:06 2026
+//  This file was automatically generated on Mon Aug 17 12:06:15 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -467,6 +467,11 @@ namespace boost_no_cxx17_std_launder = empty_boost;
 #else
 namespace boost_no_cxx17_structured_bindings = empty_boost;
 #endif
+#ifndef BOOST_NO_CXX20_CHAR8_T
+#include "boost_no_cxx20_char8_t.ipp"
+#else
+namespace boost_no_cxx20_char8_t = empty_boost;
+#endif
 #ifndef BOOST_NO_CXX20_HDR_BARRIER
 #include "boost_no_cxx20_hdr_barrier.ipp"
 #else
@@ -586,6 +591,51 @@ namespace boost_no_cxx23_hdr_stacktrace = empty_boost;
 #include "boost_no_cxx23_hdr_stdfloat.ipp"
 #else
 namespace boost_no_cxx23_hdr_stdfloat = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_CONTRACTS
+#include "boost_no_cxx26_hdr_contracts.ipp"
+#else
+namespace boost_no_cxx26_hdr_contracts = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_DEBUGGING
+#include "boost_no_cxx26_hdr_debugging.ipp"
+#else
+namespace boost_no_cxx26_hdr_debugging = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_HAZARD_POINTER
+#include "boost_no_cxx26_hdr_hazard_pointer.ipp"
+#else
+namespace boost_no_cxx26_hdr_hazard_pointer = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_HIVE
+#include "boost_no_cxx26_hdr_hive.ipp"
+#else
+namespace boost_no_cxx26_hdr_hive = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_INPLACE_VECTOR
+#include "boost_no_cxx26_hdr_inplace_vector.ipp"
+#else
+namespace boost_no_cxx26_hdr_inplace_vector = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_LINALG
+#include "boost_no_cxx26_hdr_linalg.ipp"
+#else
+namespace boost_no_cxx26_hdr_linalg = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_RCU
+#include "boost_no_cxx26_hdr_rcu.ipp"
+#else
+namespace boost_no_cxx26_hdr_rcu = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_SIMD
+#include "boost_no_cxx26_hdr_simd.ipp"
+#else
+namespace boost_no_cxx26_hdr_simd = empty_boost;
+#endif
+#ifndef BOOST_NO_CXX26_HDR_TEXT_ENCODING
+#include "boost_no_cxx26_hdr_text_encoding.ipp"
+#else
+namespace boost_no_cxx26_hdr_text_encoding = empty_boost;
 #endif
 #ifndef BOOST_NO_CXX98_BINDERS
 #include "boost_no_cxx98_binders.ipp"
@@ -1033,6 +1083,11 @@ namespace boost_has_two_arg_use_facet = empty_boost;
 #else
 namespace boost_has_bethreads = empty_boost;
 #endif
+#ifdef BOOST_HAS_BUILTIN_LAUNDER
+#include "boost_has_builtin_launder.ipp"
+#else
+namespace boost_has_builtin_launder = empty_boost;
+#endif
 #ifdef BOOST_HAS_CLOCK_GETTIME
 #include "boost_has_clock_gettime.ipp"
 #else
@@ -1219,6 +1274,11 @@ int main( int, char *[] )
    if(0 != boost_has_bethreads::test())
    {
       std::cerr << "Failed test for BOOST_HAS_BETHREADS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_has_builtin_launder::test())
+   {
+      std::cerr << "Failed test for BOOST_HAS_BUILTIN_LAUNDER at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_has_clock_gettime::test())
@@ -1841,6 +1901,11 @@ int main( int, char *[] )
       std::cerr << "Failed test for BOOST_NO_CXX17_STRUCTURED_BINDINGS at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
+   if(0 != boost_no_cxx20_char8_t::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX20_CHAR8_T at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
    if(0 != boost_no_cxx20_hdr_barrier::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX20_HDR_BARRIER at: " << __FILE__ << ":" << __LINE__ << std::endl;
@@ -1959,6 +2024,51 @@ int main( int, char *[] )
    if(0 != boost_no_cxx23_hdr_stdfloat::test())
    {
       std::cerr << "Failed test for BOOST_NO_CXX23_HDR_STDFLOAT at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_contracts::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_CONTRACTS at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_debugging::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_DEBUGGING at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_hazard_pointer::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_HAZARD_POINTER at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_hive::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_HIVE at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_inplace_vector::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_INPLACE_VECTOR at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_linalg::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_LINALG at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_rcu::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_RCU at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_simd::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_SIMD at: " << __FILE__ << ":" << __LINE__ << std::endl;
+      ++error_count;
+   }
+   if(0 != boost_no_cxx26_hdr_text_encoding::test())
+   {
+      std::cerr << "Failed test for BOOST_NO_CXX26_HDR_TEXT_ENCODING at: " << __FILE__ << ":" << __LINE__ << std::endl;
       ++error_count;
    }
    if(0 != boost_no_cxx98_binders::test())

@@ -1,4 +1,4 @@
-//  This file was automatically generated on Fri Jul 10 19:11:06 2026
+//  This file was automatically generated on Mon Aug 17 12:06:15 2026
 //  by libs/config/tools/generate.cpp
 //  Copyright John Maddock 2002-21.
 //  Use, modification and distribution are subject to the 
@@ -19,6 +19,11 @@
 #ifdef TEST_BOOST_HAS_BETHREADS
 #  ifndef BOOST_HAS_BETHREADS
 #     error "Feature macro BOOST_HAS_BETHREADS is not defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_HAS_BUILTIN_LAUNDER
+#  ifndef BOOST_HAS_BUILTIN_LAUNDER
+#     error "Feature macro BOOST_HAS_BUILTIN_LAUNDER is not defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_HAS_CLOCK_GETTIME
@@ -641,6 +646,11 @@
 #     error "Defect macro BOOST_NO_CXX17_STRUCTURED_BINDINGS is defined."
 #  endif
 #endif
+#ifdef TEST_BOOST_NO_CXX20_CHAR8_T
+#  ifdef BOOST_NO_CXX20_CHAR8_T
+#     error "Defect macro BOOST_NO_CXX20_CHAR8_T is defined."
+#  endif
+#endif
 #ifdef TEST_BOOST_NO_CXX20_HDR_BARRIER
 #  ifdef BOOST_NO_CXX20_HDR_BARRIER
 #     error "Defect macro BOOST_NO_CXX20_HDR_BARRIER is defined."
@@ -759,6 +769,51 @@
 #ifdef TEST_BOOST_NO_CXX23_HDR_STDFLOAT
 #  ifdef BOOST_NO_CXX23_HDR_STDFLOAT
 #     error "Defect macro BOOST_NO_CXX23_HDR_STDFLOAT is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_CONTRACTS
+#  ifdef BOOST_NO_CXX26_HDR_CONTRACTS
+#     error "Defect macro BOOST_NO_CXX26_HDR_CONTRACTS is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_DEBUGGING
+#  ifdef BOOST_NO_CXX26_HDR_DEBUGGING
+#     error "Defect macro BOOST_NO_CXX26_HDR_DEBUGGING is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_HAZARD_POINTER
+#  ifdef BOOST_NO_CXX26_HDR_HAZARD_POINTER
+#     error "Defect macro BOOST_NO_CXX26_HDR_HAZARD_POINTER is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_HIVE
+#  ifdef BOOST_NO_CXX26_HDR_HIVE
+#     error "Defect macro BOOST_NO_CXX26_HDR_HIVE is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_INPLACE_VECTOR
+#  ifdef BOOST_NO_CXX26_HDR_INPLACE_VECTOR
+#     error "Defect macro BOOST_NO_CXX26_HDR_INPLACE_VECTOR is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_LINALG
+#  ifdef BOOST_NO_CXX26_HDR_LINALG
+#     error "Defect macro BOOST_NO_CXX26_HDR_LINALG is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_RCU
+#  ifdef BOOST_NO_CXX26_HDR_RCU
+#     error "Defect macro BOOST_NO_CXX26_HDR_RCU is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_SIMD
+#  ifdef BOOST_NO_CXX26_HDR_SIMD
+#     error "Defect macro BOOST_NO_CXX26_HDR_SIMD is defined."
+#  endif
+#endif
+#ifdef TEST_BOOST_NO_CXX26_HDR_TEXT_ENCODING
+#  ifdef BOOST_NO_CXX26_HDR_TEXT_ENCODING
+#     error "Defect macro BOOST_NO_CXX26_HDR_TEXT_ENCODING is defined."
 #  endif
 #endif
 #ifdef TEST_BOOST_NO_CXX98_BINDERS

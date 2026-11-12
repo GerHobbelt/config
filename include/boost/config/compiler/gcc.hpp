@@ -167,7 +167,13 @@
 #include <stddef.h>
 #endif
 #if defined(_GLIBCXX_USE_FLOAT128) && !defined(__STRICT_ANSI__) && !defined(BOOST_NVCC_CXX03)
-# define BOOST_HAS_FLOAT128
+#if defined(__has_include)
+#if __has_include(<quadmath.h>)
+#  define BOOST_HAS_FLOAT128
+#endif
+#else
+#  define BOOST_HAS_FLOAT128
+#endif
 #endif
 
 // C++0x features in 4.3.n and later
@@ -356,6 +362,11 @@
 #define BOOST_DEPRECATED(msg) __attribute__((deprecated(msg)))
 #else
 #define BOOST_DEPRECATED(msg) __attribute__((deprecated))
+#endif
+
+// __builtin_launder intrinsic
+#if BOOST_GCC_VERSION >= 70000
+#  define BOOST_HAS_BUILTIN_LAUNDER
 #endif
 
 #ifndef BOOST_COMPILER

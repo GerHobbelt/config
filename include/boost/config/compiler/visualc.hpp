@@ -115,6 +115,12 @@
 #define BOOST_DEPRECATED(msg) __declspec(deprecated)
 #endif
 
+// __builtin_launder intrinsic
+//The intrinsic is only available in C++17 or later mode
+#if (_MSC_VER >= 1910) && defined(_MSVC_LANG) && (_MSVC_LANG > 201402L)
+# define BOOST_HAS_BUILTIN_LAUNDER
+#endif
+
 //
 // TR1 features:
 //
@@ -267,6 +273,15 @@
 #define BOOST_NO_CXX17_AUTO_NONTYPE_TEMPLATE_PARAMS
 #endif
 
+#if _MSC_VER >= 1930
+// [[no_unique_address]] is a no-op under MSVC
+// [[msvc::no_unique_address]] applies the optimization, and works with /std:c++14 and /std:c++17
+// Even though it's supported from 19.28 onwards, we only enable it from 19.30, so that a minor
+// compiler update doesn't change ABI
+#define BOOST_ATTRIBUTE_NO_UNIQUE_ADDRESS \
+  __pragma(warning(push)) __pragma(warning(disable: 4848)) [[msvc::no_unique_address]] __pragma(warning(pop))
+#endif
+
 //
 // Things that don't work in clr mode:
 //
@@ -277,7 +292,7 @@
 #if !defined(BOOST_NO_SFINAE_EXPR) && !defined(_MSVC_LANG)
 #  define BOOST_NO_SFINAE_EXPR
 #endif
-#ifndef BOOST_NO_CXX11_REF_QUALIFIERS
+#if !defined(BOOST_NO_CXX11_REF_QUALIFIERS) && !defined(_MSVC_LANG)
 #  define BOOST_NO_CXX11_REF_QUALIFIERS
 #endif
 #endif
